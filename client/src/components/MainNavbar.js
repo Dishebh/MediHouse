@@ -7,7 +7,7 @@ const MainNavbar = (props) => (
     <Toolbar sx={{ height: 64 }}>
       <RouterLink to="/">
         {/* <Logo /> */}
-        <Typography variant="h4">UHG Optum</Typography>
+        <Typography variant="h4">MediHouse</Typography>
       </RouterLink>
     </Toolbar>
   </AppBar>

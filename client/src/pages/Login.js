@@ -71,7 +71,7 @@ const Login = ({ user, loginUser, fetchUser }) => {
                 })}
                 onSubmit={async (values) => {
                   await loginUser(values.email, values.password);
-                  navigate('/dashboard', { replace: true });
+                  navigate('/home', { replace: true });
                 }}
               >
                 {({

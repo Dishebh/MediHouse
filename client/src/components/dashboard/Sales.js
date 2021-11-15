@@ -23,22 +23,29 @@ const Sales = (props) => {
         barThickness: 12,
         borderRadius: 4,
         categoryPercentage: 0.5,
-        data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year',
-        maxBarThickness: 10
-      },
-      {
-        backgroundColor: colors.grey[200],
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
-        categoryPercentage: 0.5,
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year',
+        data: [47, 24, 105, 5, 115, 15, 80],
+        label: 'No. of patients',
         maxBarThickness: 10
       }
+      // {
+      //   backgroundColor: colors.grey[200],
+      //   barPercentage: 0.5,
+      //   barThickness: 12,
+      //   borderRadius: 4,
+      //   categoryPercentage: 0.5,
+      //   data: [11, 20, 12, 29, 30, 25, 13],
+      //   label: 'Last year',
+      //   maxBarThickness: 10
+      // }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: [
+      'Barnstable County',
+      'Berkshire County',
+      'Bristol County',
+      'Dukes County',
+      'Essex County',
+      'Franklin County'
+    ]
   };
 
   const options = {
@@ -95,16 +102,12 @@ const Sales = (props) => {
   return (
     <Card {...props}>
       <CardHeader
-        action={(
-          <Button
-            endIcon={<ArrowDropDownIcon />}
-            size="small"
-            variant="text"
-          >
-            Last 7 days
-          </Button>
-        )}
-        title="Latest Sales"
+        // action={
+        //   <Button endIcon={<ArrowDropDownIcon />} size="small" variant="text">
+        //     Last 7 days
+        //   </Button>
+        // }
+        title="Patient County Distribution"
       />
       <Divider />
       <CardContent>
@@ -114,14 +117,11 @@ const Sales = (props) => {
             position: 'relative'
           }}
         >
-          <Bar
-            data={data}
-            options={options}
-          />
+          <Bar data={data} options={options} />
         </Box>
       </CardContent>
       <Divider />
-      <Box
+      {/* <Box
         sx={{
           display: 'flex',
           justifyContent: 'flex-end',
@@ -136,7 +136,7 @@ const Sales = (props) => {
         >
           Overview
         </Button>
-      </Box>
+      </Box> */}
     </Card>
   );
 };

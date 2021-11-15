@@ -81,7 +81,7 @@ exports.logout = async (req, res, next) => {
     });
 
     req.logout();
-    res.redirect(`${baseUrl}/dashboard`);
+    res.redirect(`${baseUrl}/home`);
 
     // res.status(200).json({ status: 'success' });
   } catch (error) {

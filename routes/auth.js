@@ -23,7 +23,7 @@ router.get(
 );
 
 router.get('/google/callback', passport.authenticate('google'), (req, res) => {
-  res.redirect(`${baseUrl}/dashboard`);
+  res.redirect(`${baseUrl}/home`);
 });
 
 // router.get('/logout', (req, res) => {

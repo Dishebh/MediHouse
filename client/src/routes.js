@@ -17,11 +17,11 @@ const routes = [
     children: [
       { path: 'account', element: <Account /> },
       { path: 'medications', element: <CustomerList /> },
-      { path: 'dashboard', element: <Dashboard /> },
+      { path: 'home', element: <Dashboard /> },
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
       { path: '*', element: <Navigate to="/404" /> },
-      { path: '/', element: <Navigate to="/dashboard" /> }
+      { path: '/', element: <Navigate to="/home" /> }
     ]
   },
   {
@@ -31,7 +31,7 @@ const routes = [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/dashboard" /> },
+      { path: '/', element: <Navigate to="/home" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

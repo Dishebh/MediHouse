@@ -22,10 +22,10 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
     <AppBar elevation={0} {...rest}>
       <Toolbar>
         <RouterLink to="/">
-          <Typography variant="h4">UHG Optum</Typography>
+          <Typography variant="h4">MediHouse</Typography>
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />
-        <Hidden xlDown>
+        {/* <Hidden xlDown>
           <IconButton color="inherit" size="large">
             <Badge
               badgeContent={notifications.length}
@@ -38,7 +38,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
           <IconButton color="inherit" size="large">
             <InputIcon />
           </IconButton>
-        </Hidden>
+        </Hidden> */}
         <Hidden lgUp>
           <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
             <MenuIcon />

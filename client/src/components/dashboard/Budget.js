@@ -11,29 +11,15 @@ import MoneyIcon from '@material-ui/icons/Money';
 import { red } from '@material-ui/core/colors';
 
 const Budget = (props) => (
-  <Card
-    sx={{ height: '100%' }}
-    {...props}
-  >
+  <Card sx={{ height: '100%' }} {...props}>
     <CardContent>
-      <Grid
-        container
-        spacing={3}
-        sx={{ justifyContent: 'space-between' }}
-      >
+      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
-          <Typography
-            color="textSecondary"
-            gutterBottom
-            variant="h6"
-          >
-            BUDGET
+          <Typography color="textSecondary" gutterBottom variant="h6">
+            HEALTHCARE EXPENSES
           </Typography>
-          <Typography
-            color="textPrimary"
-            variant="h3"
-          >
-            $24,000
+          <Typography color="textPrimary" variant="h3">
+            $895.745K
           </Typography>
         </Grid>
         <Grid item>
@@ -55,7 +41,7 @@ const Budget = (props) => (
           alignItems: 'center'
         }}
       >
-        <ArrowDownwardIcon sx={{ color: red[900] }} />
+        {/* <ArrowDownwardIcon sx={{ color: red[900] }} />
         <Typography
           sx={{
             color: red[900],
@@ -65,12 +51,9 @@ const Budget = (props) => (
         >
           12%
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="caption"
-        >
+        <Typography color="textSecondary" variant="caption">
           Since last month
-        </Typography>
+        </Typography> */}
       </Box>
     </CardContent>
   </Card>

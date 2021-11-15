@@ -19,18 +19,24 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  Users as UsersIcon,
+  Home as HomeIcon
 } from 'react-feather';
 import NavItem from './NavItem';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions';
-import { Logout } from '@material-ui/icons';
+import { Logout, OnlinePrediction } from '@material-ui/icons';
 
 const userProfile = {
   avatar: '/static/images/avatars/avatar_6.png',
   jobTitle: 'Senior Devusereloper',
   name: 'Katarina Smith'
 };
+
+const predictionUrl =
+  'https://share.streamlit.io/khunjahad/medihouse-prediction/main/prediction.py';
+const dashboardUrl =
+  'https://share.streamlit.io/khunjahad/medihouse-analysis/main/analysis.py';
 
 const baseUrl =
   process.env.NODE_ENV === 'production'
@@ -39,14 +45,24 @@ const baseUrl =
 
 const items = [
   {
-    href: '/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
+    href: '/home',
+    icon: HomeIcon,
+    title: 'Home'
   },
   {
     href: '/medications',
     icon: UsersIcon,
     title: 'Medications'
+  },
+  {
+    href: '#',
+    icon: BarChartIcon,
+    title: 'Dashboard'
+  },
+  {
+    href: '/#',
+    icon: OnlinePrediction,
+    title: 'Prediction'
   }
   // {
   //   href: '/products',
@@ -78,6 +94,14 @@ const items = [
 const DashboardSidebar = ({ onMobileClose, openMobile, user }) => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handleClick = (item) => {
+    if (item.title === 'Prediction') {
+      window.open(predictionUrl, '_blank');
+    } else if (item.title === 'Dashboard') {
+      window.open(dashboardUrl, '_blank');
+    }
+  };
 
   const isLoggedIn = () =>
     (user && Object.keys(user).length) || localStorage.getItem('token');
@@ -142,6 +166,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile, user }) => {
               key={item.title}
               title={item.title}
               icon={item.icon}
+              onClick={() => handleClick(item)}
             />
           ))}
           {!isLoggedIn() ? (

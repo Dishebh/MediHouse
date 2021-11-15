@@ -13,24 +13,13 @@ import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 const TotalCustomers = (props) => (
   <Card {...props}>
     <CardContent>
-      <Grid
-        container
-        spacing={3}
-        sx={{ justifyContent: 'space-between' }}
-      >
+      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
-          <Typography
-            color="textSecondary"
-            gutterBottom
-            variant="h6"
-          >
-            TOTAL CUSTOMERS
+          <Typography color="textSecondary" gutterBottom variant="h6">
+            TOTAL ADHERENCE
           </Typography>
-          <Typography
-            color="textPrimary"
-            variant="h3"
-          >
-            1,600
+          <Typography color="textPrimary" variant="h3">
+            731
           </Typography>
         </Grid>
         <Grid item>
@@ -52,7 +41,7 @@ const TotalCustomers = (props) => (
           pt: 2
         }}
       >
-        <ArrowUpwardIcon sx={{ color: green[900] }} />
+        {/* <ArrowUpwardIcon sx={{ color: green[900] }} />
         <Typography
           variant="body2"
           sx={{
@@ -62,12 +51,9 @@ const TotalCustomers = (props) => (
         >
           16%
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="caption"
-        >
+        <Typography color="textSecondary" variant="caption">
           Since last month
-        </Typography>
+        </Typography> */}
       </Box>
     </CardContent>
   </Card>
