@@ -17,7 +17,7 @@ const baseUrl =
 
 export const fetchUser = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${baseUrl}/auth/current_user`);
+    const res = await axios.get(`/auth/current_user`);
 
     console.log('fetchuser', res.data);
 
@@ -33,7 +33,7 @@ export const fetchUser = () => async (dispatch) => {
 export const registerUser =
   (name, email, profilePic, password) => async (dispatch) => {
     try {
-      const res = await axios.post(`${baseUrl}/auth/signup`, {
+      const res = await axios.post(`/auth/signup`, {
         name,
         email,
         profilePic,
@@ -53,7 +53,7 @@ export const registerUser =
 
 export const loginUser = (email, password) => async (dispatch) => {
   try {
-    const res = await axios.post(`${baseUrl}/auth/login`, {
+    const res = await axios.post(`/auth/login`, {
       email,
       password
     });
@@ -70,7 +70,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  await axios.get(`${baseUrl}/auth/logout`);
+  await axios.get(`/auth/logout`);
 
   dispatch({
     type: LOGOUT
@@ -79,7 +79,7 @@ export const logout = () => async (dispatch) => {
 
 export const updateUser =
   (name, email, phoneNo, profilePic) => async (dispatch) => {
-    await axios.patch(`${baseUrl}/auth/update-user`, {
+    await axios.patch(`/auth/update-user`, {
       name,
       email,
       phoneNo,
@@ -93,7 +93,7 @@ export const updateUser =
   };
 
 export const fetchUserList = () => async (dispatch) => {
-  const res = await axios.get(`${baseUrl}/api/medications`);
+  const res = await axios.get(`/api/medications`);
 
   dispatch({
     type: USER_LIST,
@@ -104,7 +104,7 @@ export const fetchUserList = () => async (dispatch) => {
 export const addMedication =
   (firstName, lastName, email, address, phone, avatarUrl, cronValue) =>
   async (dispatch) => {
-    const res = await axios.post(`${baseUrl}/api/medication`, {
+    const res = await axios.post(`/api/medication`, {
       firstName,
       lastName,
       email,

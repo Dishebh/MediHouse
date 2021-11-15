@@ -155,7 +155,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile, user }) => {
             </>
           ) : (
             <>
-              <a id="logout-link" href={`${baseUrl}/auth/logout`} />
+              <a id="logout-link" href={`/auth/logout`} />
               <NavItem
                 href="/account"
                 key="account"

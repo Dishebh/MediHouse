@@ -92,9 +92,7 @@ const Login = ({ user, loginUser, fetchUser }) => {
                           size="large"
                           variant="contained"
                         >
-                          <a href={`${baseUrl}/auth/google`}>
-                            Login with Google
-                          </a>
+                          <a href={`/auth/google`}>Login with Google</a>
                         </Button>
                       </Grid>
                     </Grid>

@@ -46,6 +46,8 @@
     "jsx-a11y/anchor-has-content": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "indent": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
+    "quotes": "off",
+    "react/jsx-curly-brace-presence": "off"
   }
 }
