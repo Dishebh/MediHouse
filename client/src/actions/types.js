@@ -1,0 +1,10 @@
+export const FETCH_USER = 'fetch_user';
+export const FETCH_ERROR = 'fetch_error';
+export const REGISTER_USER = 'register_user';
+export const FETCH_POSTS = 'fetch_posts';
+export const CREATE_POST = 'create_post';
+export const LOGOUT = 'logout';
+export const LOGIN_USER = 'login_user';
+export const UPDATE_USER = 'update_user';
+export const USER_LIST = 'user_list';
+export const ADD_MEDICATION = 'add_medication';
