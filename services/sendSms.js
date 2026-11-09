@@ -10,12 +10,12 @@ const client = new twilio(accountSid, authToken);
 // client.messages
 //   .create({
 //     body: 'Hello from Node',
-//     to: '+919991823349', // Text this number
+//     to: '++919999999999', // Text this number
 //     from: '+18048892908', // From a valid Twilio number
 //   })
 //   .then((message) => console.log('hi', message.sid));
 
-// const numbers = ['+919991823349'];
+// const numbers = ['+919999999999'];
 
 // new CronJob(
 //   '26 18 * * *',
