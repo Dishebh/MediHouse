@@ -6,45 +6,19 @@ const { CronJob } = require('cron');
 const twilio = require('twilio');
 const Medication = require('../models/Medication');
 const client = new twilio(accountSid, authToken);
-
-// client.messages
-//   .create({
-//     body: 'Hello from Node',
-//     to: '++919999999999', // Text this number
-//     from: '+18048892908', // From a valid Twilio number
-//   })
-//   .then((message) => console.log('hi', message.sid));
-
-// const numbers = ['+919999999999'];
-
-// new CronJob(
-//   '26 18 * * *',
-//   function () {
-//     for (let i = 0; i < numbers.length; i++) {
-//       client.messages
-//         .create({
-//           to: numbers[i],
-//           from: '+18048892908',
-//           body: 'Hello! Hope you’re having a good day.',
-//         })
-//         .then((message) => console.log(message.sid));
-//     }
-//   },
-//   null,
-//   true
-// );
+const fromNumber = process.env.TWILIO_FROM; // A valid Twilio number, e.g. +15550100000
 
 Medication.find({}).then((data) => {
   data.forEach((medication) => {
     if (medication.cronValue && medication.cronValue.length > 0) {
-      console.log('med!', medication);
+      console.log('Scheduled reminder for medication', medication._id);
       new CronJob(
         medication.cronValue,
         function () {
           client.messages
             .create({
               to: medication.phone,
-              from: '+18048892908',
+              from: fromNumber,
               body: 'Hello! Please take your medication.',
             })
             .then((message) => console.log(message.sid));
