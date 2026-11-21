@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     ['/api', '/auth'],
     createProxyMiddleware({
-      target: 'https://medihouse-api.herokuapp.com',
+      target: process.env.API_PROXY_TARGET || 'http://localhost:5000',
       changeOrigin: true
     })
   );

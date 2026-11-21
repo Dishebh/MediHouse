@@ -1,0 +1,15 @@
+{
+  "name": "medihouse-devdb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local in-memory MongoDB-compatible server for MediHouse development (no MongoDB binaries)",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "easydb-server --host 127.0.0.1 --port ${DEVDB_PORT:-27017} --adapter memory"
+  },
+  "dependencies": {
+    "@rckflr/easydb-server": "0.4.0"
+  }
+}
