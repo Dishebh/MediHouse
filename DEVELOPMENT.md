@@ -14,12 +14,12 @@ Use npm only. Yarn and pnpm lockfiles are not maintained.
 ## Install
 
 ```sh
-npm ci                   # backend (repo root)
-npm ci --prefix devdb    # local MongoDB-compatible dev database
-npm ci --prefix client   # frontend; client/.npmrc sets legacy-peer-deps=true
+npm ci                                        # backend (repo root)
+npm ci --prefix devdb --omit=optional         # local MongoDB-compatible dev database
+npm ci --prefix client --legacy-peer-deps     # frontend
 ```
 
-No install step downloads native binaries or compiles native code. The remaining install scripts (`nodemon`, `tesseract.js`) only print messages. `devdb/.npmrc` sets `omit=optional` so the native `better-sqlite3` optional dependency of `@rckflr/easydb-server` is never fetched.
+Both flags are required; the repo has no `.npmrc` files. Without `--legacy-peer-deps` the client install fails with `ERESOLVE` (see Known issues). Without `--omit=optional` the devdb install fetches or compiles the native `better-sqlite3` optional dependency of `@rckflr/easydb-server`, which the memory adapter doesn't use. With both flags, no install step downloads native binaries or compiles native code. The remaining install scripts (`nodemon`, `tesseract.js`) only print messages.
 
 ## Configure
 
@@ -84,7 +84,7 @@ easydb-server also has a `postgres` adapter, which needs the pure-JS `pg` packag
 ## Known issues (pre-existing, unchanged)
 
 - The frontend uses `react-scripts` 4 / webpack 4, which needs `--openssl-legacy-provider` on Node 17+. The `start` and `build` scripts pass it. The long-term fix is upgrading to `react-scripts` 5.
-- `material-table@1.69.3` declares a peer of `@material-ui/core@^4`, while the app uses `5.0.0-beta.5`. Installing therefore relies on `legacy-peer-deps`.
+- `material-table@1.69.3` declares a peer of `@material-ui/core@^4`, while the app uses `5.0.0-beta.5`. Installing the client therefore needs `--legacy-peer-deps`.
 - `npm run eslint --prefix client` reports 3 errors from optional chaining in `src/pages/CustomerList.js`, which the configured parser doesn't support. `npm run lint` also scans `node_modules`/`build`.
 - The client has no test files, so `npm test --prefix client` exits with "No tests found".
 - `createdAt` defaults use `Date.now()` evaluated once at startup, so every record created by one backend process gets the same timestamp.
